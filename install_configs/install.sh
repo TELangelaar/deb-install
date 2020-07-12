@@ -10,4 +10,3 @@ esac
 
 apt-get install vlc chromium vim cowsay fortune -y
 apt-get install zsh
-apt-get install git -y
