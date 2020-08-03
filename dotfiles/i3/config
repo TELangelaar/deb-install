@@ -220,7 +220,7 @@ bar {
 }
 
 ### Custom bindings
-bindsym $mod+Shift+x exec ~/.config/thijmebash/i3lock-extra.bash
+bindsym $mod+Shift+x exec ~/.config/i3/i3lock-extra.bash
 
 ### i3-gaps stuff ###
 # Necessary for i3-gaps to work properly (pixel can be any value)
