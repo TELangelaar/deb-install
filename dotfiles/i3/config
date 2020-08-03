@@ -5,25 +5,26 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-### COLORS
-set $bg-base				#ebc386
-set $bg-inactive			#bcb5aa
-set $text-base				#222831
-set $text-inactive			#807b74
-set $bg-urgent				#8c271e
-set $text-urgent			#ffffff
 
-set $bg-bar					#30475e
-set $bg-ws-active			#ebc386
-set $bg-ws-inactive			#93b1d0
-set $text-bar				#222831
+### COLORS
+set $bg-basw         #ebc386
+set $bg-inactive     #bcb5aa
+set $text-base       #222831
+set $text-inactive   #807b74
+set $bg-urgent       #8c271e
+set $text-urgent     #ffffff
+
+set $bg-bar          #30475e
+set $bg-ws-active    #ebc386
+set $bg-ws-inactive  #93b1d0
+set $text-bar	     #222831
 
 # window colors
-#                       border				background			text				indicator
-client.focused          $bg-base			$bg-base				$text-base			#00ff00
-client.unfocused        $bg-inactive	$bg-inactive		$text-inactive		#00ff00
-client.focused_inactive $bg-inactive	$bg-inactive		$text-inactive		#00ff00
-client.urgent           $bg-urgent		$bg-urgent			$text-urgent		#00ff00
+#                       border         background     text	     indicator
+client.focused          $bg-base       $bg-base       $text-base     #00ff00
+client.unfocused        $bg-inactive   $bg-inactive   $text-inactive #00ff00
+client.focused_inactive $bg-inactive   $bg-inactive   $text-inactive #00ff00
+client.urgent           $bg-urgent     $bg-urgent     $text-urgent   #00ff00
 
 hide_edge_borders both
 
@@ -54,14 +55,13 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
 
 # start a terminal
 bindsym $mod+Return exec xfce4-terminal --hide-menubar --hide-scrollbar
@@ -142,6 +142,7 @@ set $ws10 "10 "
 
 #assign [class="Xfce4-terminal"] $ws1
 assign [class="Firefox-esr"] $ws3 #always open firefox on the third workspace
+assign [class="Spotify"] $ws10
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -174,7 +175,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your session.' -b 'Yes, exit i3' 'i3-msg exit'" 
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you want to exit i3? This will end your session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -209,22 +210,19 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 		position top
 		colors {
-			background $bg-bar
-				separator #757575
-			#                  border             background         text
-			focused_workspace  $bg-ws-active      $bg-ws-active         $text-bar
-			inactive_workspace $bg-ws-inactive    $bg-ws-inactive		$text-bar
-			urgent_workspace   $bg-urgent		  $bg-urgent		   	$text-urgent
+			background  $bg-bar
+			separator   #757575
+			#                  border           background        text
+			focused_workspace  $bg-ws-active    $bg-ws-active     $text-bar
+			inactive_workspace $bg-ws-inactive  $bg-ws-inactive   $text-bar
+			urgent_workspace   $bg-urgent       $bg-urgent	      $text-urgent
 		}
 }
-
 
 ### Custom bindings
 bindsym $mod+Shift+x exec ~/.config/thijmebash/i3lock-extra.bash
 
- 
 ### i3-gaps stuff ###
-
 # Necessary for i3-gaps to work properly (pixel can be any value)
 for_window [class="^.*"] border pixel 2
 
@@ -275,7 +273,6 @@ mode "$mode_gaps_outer" {
 }
 
 ### Multimedia keys
-
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
@@ -293,7 +290,6 @@ bindsym XF86AudioPrev exec playerctl previous
 exec firefox-esr
 exec_always feh --bg-scale /home/thijme/Pictures/wallpapers/japanwaves.jpg
 exec_always compton --config ~/.config/compton/compton.conf
-
 
 ### Custom tiling behavior
 focus_follows_mouse no

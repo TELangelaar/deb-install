@@ -1,0 +1,23 @@
+#viewing
+mod+S --> stacked
+mod+W --> tabbed
+mod+E --> normal
+
+#placement next window
+mod+V --> next one placed vertical
+mod+H --> next one placed horizontal
+
+#manipulating windows
+mod+R		 --> resize with arrows
+mod+Shift+arrow  --> move window to other position
+mod+Shift+L	 --> place open windows vertically
+mod+Shift+K	 --> place open windows horizontally
+
+#workspaces
+mod+num (1,2,3) --> workspace
+mod+Shift+num 	--> move window to workspace
+
+#logout/lock
+mod+Shift+E 	--> exit
+type in terminal: i3lock
+

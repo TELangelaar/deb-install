@@ -1,0 +1,11 @@
+# sl - steam locomotive
+apt install sl
+# yes - repeat string until killed
+# rev - reverses given strings
+# aafire - terminal fire
+apt install libaa-bin
+# espeak - speaks out the given string
+apt install espeak
+# figlet - convert string to ASCII art
+# oneko - display a cat that follows the cursor
+# cmatrix - matrix style matrix in terminal
